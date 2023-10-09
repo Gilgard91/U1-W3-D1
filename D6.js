@@ -247,15 +247,15 @@ console.log(oldestMovie(movies));
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
-// function moviesNumber(arr) {
-//   let moviesSum = 0;
-//   for(let i = 0; i < arr.length; i++){
-//     moviesSum += arr[i]
-//   }
-// return moviesSum
-// }
+function moviesNumber(arr) {
+  let moviesSum = 0;
+  for(let i = 0; i < arr.length; i++){
+    moviesSum++
+  }
+return moviesSum
+}
 
-// console.log(moviesNumber(movies));
+console.log(moviesNumber(movies));
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
