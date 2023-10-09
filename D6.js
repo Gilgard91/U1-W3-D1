@@ -10,7 +10,7 @@ function concatenate(str1, str2) {
   return firstString.concat(secondString).toUpperCase();
 }
 
-console.log(concatenate("ciao", "come va"));
+console.log(concatenate("ciao", "epicode"));
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
@@ -249,10 +249,10 @@ console.log(oldestMovie(movies));
 
 function moviesNumber(arr) {
   let moviesSum = 0;
-  for(let i = 0; i < arr.length; i++){
-    moviesSum++
+  for (let i = 0; i < arr.length; i++) {
+    moviesSum++;
   }
-return moviesSum
+  return moviesSum;
 }
 
 console.log(moviesNumber(movies));
@@ -261,18 +261,58 @@ console.log(moviesNumber(movies));
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 
+function moviesTitles(arr) {
+  return arr.map((titolo) => titolo.Title);
+}
+
+console.log(moviesTitles(movies));
+
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+
+function currentMillennium(arr) {
+  return arr.filter((anno) => anno.Year >= 2000);
+}
+
+console.log(currentMillennium(movies));
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
+function sumYear(arr) {
+  let totalYears = arr.reduce((acc, curr) => {
+    return acc + parseInt(curr.Year);
+  }, 0);
+  return totalYears;
+}
+
+console.log(sumYear(movies));
+
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+function movieSpecific(arr, imdb) {
+  if(imdb.substring(0,2) !== "tt"){
+    return "non è un id valido"}
+  let film = arr.find((element) => {
+    return element.imdbID === imdb; 
+  });
+  return film;
+}
+
+console.log(movieSpecific(movies, "tt2395427"));
+
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+
+function movieIndex(arr, year){
+  let anno = arr.findIndex(element => element.Year === year)
+
+  return anno;
+}
+
+console.log(movieIndex(movies, "2005"));
